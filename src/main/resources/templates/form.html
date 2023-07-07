@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <tr>
+                    <th>gid</th>
+                    <th>Name</th>
+                    <th>Year</th>
+                    <th>Ranking</th>
+                    <th>User Rated:</th>
+                    <th>Url:</th>
+                    <th>Image:</th>
+                 
+                </tr>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:object="${searchGame}">
+                <td th:text="${searchGame.gid}"></td>
+                <td th:text="${searchGame.name}"></td>
+                <td th:text="${searchGame.year}"></td>
+                <td th:text="${searchGame.ranking}"></td>
+                <td th:text="${searchGame.usersRated}"></td>
+                <td th:text="${searchGame.url}"></td>
+                <td th:text="${searchGame.image}"></td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <h1>Game Details</h1>
+    <form th:action="@{/complete}" method="post" th:object="${comment}" >
+        <a>Name:</a>
+        <input type="text" placeholder="Enter name..." th:field="*{user}">
+        <br>
+        <a>Rating:</a>
+        <input type="text" placeholder="Enter rating..." th:field="*{rating}">
+        <br>
+        <a>Comment:</a>
+        <textarea type="text" placeholder="Enter comment..." th:field="*{cText}"></textarea>
+        <br>
+        <button type="submit">post</button>
+
+    </form>
+    
+</body>
+</html>
