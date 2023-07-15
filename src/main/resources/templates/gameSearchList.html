@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Search List</title>
+</head>
+<body>
+    <h1>Search Result: <span data-th-text="${gameName}"></span></h1>
+
+    <br>
+    <div>
+        <li th:each="g:${gameList}" data-th-object="${g}">
+            <a th:href="@{/game/{gid}(gid=*{gid})}" >
+                <span data-th-text="${g.name}"></span>
+            </a>
+            
+        </li>
+    </div>
+    
+
+    
+</body>
+
+</html>

@@ -29,7 +29,7 @@
                 <td th:text="${searchGame.ranking}"></td>
                 <td th:text="${searchGame.usersRated}"></td>
                 <td th:text="${searchGame.url}"></td>
-                <td th:text="${searchGame.image}"></td>
+                <td><img th:src="@{${searchGame.image}}" /></td>
                 
             </tr>
         </tbody>

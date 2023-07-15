@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body th:object="${gameSelected}">
+    <h1>Game Details</h1>
+    <p>Gid: <span data-th-text="*{gid}"></span> </p>
+    <p>Name: <span data-th-text="*{name}"></span></p>
+    <p>Year: <span data-th-text="*{year}"></span></p>
+    <p>Ranking: <span data-th-text="*{ranking}"></span></p>
+    <p>User Rated:<span data-th-text="*{usersRated}"></span></p>
+    <p>Url:<span data-th-text="*{url}"></span></p>
+    <p>Image:</p>
+    <img th:src="@{${gameSelected.image}}" alt="Image" />
+
+    <form th:action="@{/post}" method="post" th:object="${comment}" >
+        <a>Name:</a>
+        <input type="text" placeholder="Enter name..." th:field="*{user}">
+        <br>
+        <a>Rating:</a>
+        <input type="text" placeholder="Enter rating..." th:field="*{rating}">
+        <br>
+        <a>Comment:</a>
+        <textarea type="text" placeholder="Enter comment..." th:field="*{cText}"></textarea>
+        <br>
+        <button type="submit">post</button>
+
+    </form>
+    <table border="1">
+        <tr th:each="g: ${commentList}" data-th-object="${g}">
+            <td>
+                <p>User: <span data-th-text="${g.user}"></span></p>
+                <p>Ratings: <span data-th-text="${g.rating}"></span></p>
+                <p>Comment: <span data-th-text="${g.cText}"></span></p>
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

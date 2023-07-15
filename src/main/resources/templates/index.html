@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post" action="/form" th:object="${game}">
+    <form method="get" action="/search" th:object="${game}">
 		<h1>Game Title</h1>
 		<input type="text" th:field="*{name}" size="30">
 		<button type="submit">Search</button>
